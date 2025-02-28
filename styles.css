@@ -463,6 +463,22 @@ body {
      /* Improve readability */
  }
 
+/* To adjust layouts dynamically*/
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 5% 65% 30% 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 5% 90% 5%;
+    }
+    .home-button {
+        position: absolute;
+        right: 15px;
+    }
+}
 
  footer {
      bottom: 0;
