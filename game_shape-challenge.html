@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape Navigation Challenge</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #ffcc00, #ff6699); /* Fun gradient */
+            color: white;
+            margin: 0;
+        }
+        canvas {
+            border: 4px solid white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px white;
+        }
+        .controls {
+            margin-top: 10px;
+        }
+        button {
+            padding: 12px 20px;
+            margin: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+        }
+        .play { background-color: #4CAF50; color: white; }
+        .pause { background-color: #FF9800; color: white; }
+        .restart { background-color: #E91E63; color: white; }
+    </style>
+</head>
+<body>
+
+    <div id="game-container"></div>
+    <div class="controls">
+        <button class="play" onclick="startGame()">Play</button>
+        <button class="pause" onclick="togglePause()" disabled>Pause</button>
+        <button class="restart" onclick="restartGame()" disabled>Restart</button>
+    </div>
+
+    <script>
+        let game;
+        let gameRunning = false;
+        let isPaused = false;
+        let player, cursors, obstacles, score = 0, scoreText;
+
+        const config = {
+            type: Phaser.AUTO,
+            width: 800,
+            height: 600,
+            parent: 'game-container',
+            physics: { default: 'arcade', arcade: { gravity: { y: 0 }, debug: false } },
+            scene: { preload, create, update }
+        };
+
+        game = new Phaser.Game(config); // Initialize the game immediately
+
+        function preload() {
+            this.load.image('player', 'https://via.placeholder.com/40/00ffcc/000000?text=P'); // Bright cyan player
+            this.load.image('obstacle', 'https://via.placeholder.com/30/808080/ffffff?text=O'); // Gray obstacle
+        }
+
+        function create() {
+            this.cameras.main.setBackgroundColor('#ADD8E6'); // Light blue background
+            player = this.physics.add.image(400, 500, 'player').setCollideWorldBounds(true);
+            player.setVelocity(0, 0); // Freeze player at the start
+
+            cursors = this.input.keyboard.createCursorKeys();
+            obstacles = this.physics.add.group();
+            scoreText = this.add.text(10, 10, 'Score: 0', { fontSize: '20px', fill: '#fff' });
+
+            this.time.addEvent({ delay: 1000, callback: spawnObstacle, callbackScope: this, loop: true });
+            this.time.addEvent({ delay: 1000, callback: increaseScore, callbackScope: this, loop: true });
+
+            this.physics.add.collider(player, obstacles, gameOver, null, this);
+
+            gameRunning = false; // Freeze everything initially
+        }
+
+        function update() {
+            if (!gameRunning || isPaused) return;
+
+            if (cursors.left.isDown) player.setVelocityX(-200);
+            else if (cursors.right.isDown) player.setVelocityX(200);
+            else player.setVelocityX(0);
+
+            if (cursors.up.isDown) player.setVelocityY(-200);
+            else if (cursors.down.isDown) player.setVelocityY(200);
+            else player.setVelocityY(0);
+        }
+
+        function spawnObstacle() {
+            if (!gameRunning || isPaused) return;
+            let x = Phaser.Math.Between(50, 750);
+            let obstacle = obstacles.create(x, 0, 'obstacle');
+            obstacle.setVelocityY(200);
+            obstacle.checkWorldBounds = true;
+            obstacle.outOfBoundsKill = true;
+        }
+
+        function increaseScore() {
+            if (gameRunning && !isPaused) {
+                score += 10;
+                scoreText.setText('Score: ' + score);
+            }
+        }
+
+        function gameOver() {
+            this.physics.pause();
+            player.setTint(0xff0000);
+            scoreText.setText('Game Over! Score: ' + score + ' (Press Restart)');
+            gameRunning = false;
+            document.querySelector('.pause').disabled = true;
+            document.querySelector('.restart').disabled = false;
+        }
+
+        function startGame() {
+            gameRunning = true;
+            player.clearTint();
+
+            document.querySelector('.play').disabled = true;
+            document.querySelector('.pause').disabled = false;
+            document.querySelector('.restart').disabled = false;
+        }
+
+        function togglePause() {
+            if (!gameRunning) return;
+
+            isPaused = !isPaused;
+            if (isPaused) {
+                game.scene.pause();
+                document.querySelector('.pause').textContent = 'Resume';
+            } else {
+                game.scene.resume();
+                document.querySelector('.pause').textContent = 'Pause';
+            }
+        }
+
+        function restartGame() {
+            game.destroy(true);
+            score = 0;
+            gameRunning = false;
+            isPaused = false;
+            game = new Phaser.Game(config);
+
+            document.querySelector('.play').disabled = false;
+            document.querySelector('.pause').disabled = true;
+            document.querySelector('.restart').disabled = true;
+            document.querySelector('.pause').textContent = 'Pause';
+        }
+    </script>
+</body>
+</html>
