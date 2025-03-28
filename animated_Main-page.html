@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Shapes</title>
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: #2c3e50;
+            color: white;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-pane a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        .nav-pane a:hover {
+            text-decoration: underline;
+        }
+        .search-box input {
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+        .home-button {
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .title-wrapper {
+            position: relative;
+            width: 100%;
+            background: #34495e;
+        }
+        .title-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .title-section h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+        .content {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .left-panel {
+            flex: 1;
+            padding: 20px;
+        }
+        .left-panel ul {
+            list-style: none;
+            padding: 0;
+        }
+        .left-panel li {
+            background: #ecf0f1;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .left-panel li:hover {
+            background: #bdc3c7;
+        }
+        .right-panel {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-left: 2px solid #ddd;
+            min-height: 400px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: #555;
+            background: #f9f9f9;
+            border-radius: 10px;
+            margin-left: 20px;
+            padding: 20px;
+        }
+        .right-panel iframe {
+            width: 100%;
+            height: 100px;
+            min-height: 600px; /* Ensure full view */
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">LOGO</div>
+        <nav class="nav-pane">
+            <a href="#explore">Explore</a>
+            <a href="#stories">Stories</a>
+            <a href="#types">Types</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#about">About</a>
+        </nav>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search content..." onkeyup="searchContent()">
+        </div>
+        <a href="#home" class="home-button">Home</a>
+    </header>
+    
+    <div class="title-wrapper">
+        <section class="title-section">
+            <h1>Animated Shapes</h1>
+        </section>
+    </div>
+    
+    <section class="content">
+        <div class="left-panel">
+            <ul id="shapeList">
+                <li onclick="loadShape('animated_balloon.html')">Animated Balloon</li>
+                <li onclick="loadShape('animated_star.html')">Animated Star</li>
+                <li onclick="loadShape('animated_clock.html')">Animated Clock</li>
+                <li onclick="loadShape('animated_calendar.html')">Animated Calendar</li>
+                <li onclick="loadShape('animated_rain.html')">Animated Rain</li>
+                <li onclick="loadShape('animated_bulb.html')">Animated Bulb</li>
+                <li onclick="loadShape('animated_growing-sun-flower.html')">Animated Growing Sun Flower</li>
+                <li onclick="loadShape('animated_sun-smiley.html')">Animated Smiley</li>
+                <li onclick="loadShape('animated_heart.html')">Animated Heart</li>
+                <li onclick="loadShape('wip.html')">Animated piano</li>
+                <li onclick="loadShape('wip.html')">Animated Happy Birthday Greetings</li>
+                <li onclick="loadShape('wip.html')">Animated Spiral</li>
+            </ul>
+        </div>
+        <div class="right-panel" id="shape-display">
+            <iframe id="shape-frame" src="AnimatedShapes_2024-12-11 16-18-54.webm" ></iframe>
+        </div>
+    </section>
+    
+    <script>
+        function loadShape(shapePage) {
+            document.getElementById('shape-frame').src = shapePage;
+        }
+        
+        function loadShape(shapePage) {
+    let iframe = document.getElementById('shape-frame');
+    iframe.src = shapePage;
+    
+    // Wait for iframe to load, then adjust height
+    iframe.onload = function () {
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    };
+}
+
+    </script>
+</body>
+</html>
