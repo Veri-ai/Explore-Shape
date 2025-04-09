@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring Shapes</title>
+    
+<style>
+    body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+    header, footer {
+    position: fixed;
+    width: 100%;
+    background-color: #041a47;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    color: white;
+}
+
+header {
+    height: 60px;
+    margin: 0;
+    padding: 0;
+                justify-content: center;
+            align-items: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 5% 70% 25% 5%; /* Adjusted column percentages */
+    width: 100%; /* Ensures the grid takes up the full width of the container */
+    gap: 12px; /* Adds space between columns */
+    align-items: center; /* Aligns items vertically within their grid cells */
+    grid-template-rows: auto; /* Ensure rows take up the content height */
+}
+
+.column1-logo-icon {
+	margin-left: 10%;
+    grid-column: 1; /* First column */
+    width: 100%; /* Ensures content stretches to the column width */        
+    text-align: center; /* Centers content inside the column */
+    justify-self: start; /* Align the logo to the left edge */
+}
+
+.column2-nav-pane {
+	margin-left: 5%;
+    
+    display: flex; /* Use flexbox for the navigation to avoid wrapping */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    gap: 15px; /* Adds space between the links */
+   
+    width: 100%; /* Stretch the nav pane to fill the column width */
+    text-align: left; /* Align navigation items to the left */
+}
+
+.column2-nav-pane a {
+    text-decoration: none; /* Remove underline from links */
+    padding: 10px;
+    font-size: 16px;
+    display: inline-block; /* Make the links behave like inline elements */
+}
+
+.nav-pane {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-pane a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.explore-btn,
+.stories-btn,
+.types-btn,
+.gallery-btn,
+.about-btn,
+.home-btn {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.explore-btn:hover,
+.stories-btn:hover,
+.types-btn:hover,
+.gallery-btn:hover,
+.about-btn:hover,
+.home-btn:hover {
+    background-color: white;
+    color: #004d99;
+}
+
+
+.column3-search-inbox {
+    grid-column: 3; /* Third column */
+    width: 100%; /* Ensures the search box stretches to fit the width */
+    text-align: center; /* Centers the content inside the column */
+    display: flex; /* Use flex to keep the search box in a single row */   
+    margin-left: 30%;
+}
+
+.column3-search-inbox input[type="text"] {
+    width: 100%; /* Ensure the search box takes up enough space without breaking */
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box; /* Include padding in width calculation */
+    white-space: nowrap; /* Prevents wrapping */
+}
+
+#search-box {
+    width: 100%;
+    padding: 5px;
+     margin-right: 10%;
+}
+
+.highlight {
+    background-color: yellow;
+}
+ 
+         .highlight {
+            background-color: yellow;
+        }
+
+        .no-match {
+            color: red;
+            font-style: italic;
+        }
+          #search-box {
+            width: 300px;
+            padding: 8px;
+            margin-bottom: 0px;
+        }
+        
+                #content {
+            line-height: 1.6;
+        }
+        
+.no-match {
+    position: absolute;
+    margin-right: 20%;   
+    width: 100%;
+    padding: 5px;
+    font-size: 14px;
+    color: #f44336; /* Red color for error message */
+    text-align: center;
+    top: 15%; /* Vertically position at 25% of the container's height */
+    left: 70%; /* Horizontally position at 50% of the container's width */
+    transform: translate(-50%, -25%); /* Adjust to center the text perfectly */
+
+}
+
+.column4-home {
+    grid-column: 4; /* Fourth column */
+    width: 100%; /* Stretches content to fit the column width */
+    margin-left: 25%;
+    text-align: center; /* Centers content inside the column */
+    justify-self: end; /* Align the home button to the right edge */
+}
+
+.home-link {
+    position: relative; /* Allow positioning of the text below the image */
+    text-decoration: none; /* Remove underline */
+    color: white; /* Default text color */
+}
+
+.home-text {
+    display: none; /* Hide the text initially */
+    position: absolute; /* Position it below the image */
+    top: 10px; /* Adjust to place the text just below the image */
+    left: 20%; /* Center the text relative to the anchor */
+    transform: translateX(-50%); /* Adjust for centering */
+    font-weight: bold; /* Make the text bold */
+    color: white; /* Ensure visibility */
+}
+
+.home-link:hover .home-text {
+    display: block; /* Show the text on hover */
+}
+
+.home-link:hover img {
+    opacity: 0.7; /* Slightly fade the image on hover */
+}
+
+main {
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+/*Card styles*/
+    .card {
+      
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      border-radius: 20px;
+      background: white; 
+      top:0; 
+      width: 100%;   
+    }
+    
+.content {
+    padding: 20px;
+}
+     .content-section{
+		  padding-top: 1px; /* Adjust to the height of the header */
+	  }
+	  
+    /* Content Section */
+    .content-section {
+      padding: 50px 10%;
+    }
+    .content-section{
+		  padding-top: 10px; /* Adjust to the height of the header */
+	  }
+
+	  
+p {
+    line-height: 1.5; /* Adjust this value as needed */
+}
+	  
+blockquote {
+    background-color: #f0f0f0; /* Light gray background */
+    padding: 15px; /* Add padding for spacing */
+    border-left: 5px solid #ccc; /* Optional left border for a blockquote effect */
+    border-radius: 5px; /* Rounded corners */
+    font-style: italic; /* Optional italic text */
+    color: #333; /* Adjust text color for readability */
+    margin: 20px 0; /* Add vertical margin for spacing */
+    line-height: 1.6; /* Improve readability */
+}	
+
+footer {
+    bottom: 0;
+    height: 50px;
+    border-top: 1px solid #ccc;
+    justify-content: center;
+}
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer a {
+    color: lightblue;
+}
+
+footer a:hover {
+    color: #f39c12;
+}   
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      
+    }
+    
+    
+     h2 {
+       color: #0d2259;
+		top:0;
+		
+}
+ 
+      .content-section{
+		  padding-top: 10px; /* Adjust to the height of the header */
+           text-align: center;
+           font-size: 20px;
+	  } 
+
+    
+/* Start of gallery content section*/
+.label {
+    padding-top: 10px; /* Adjust to the height of the header */
+/*    font-weight: bold;*/
+}
+
+        .tile-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px; /* Reduced gap between tiles */
+            padding: 20px;   
+            max-width: 1200px;
+        }
+
+        .tile {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 100%;
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .tile:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .tile-name {
+            margin-top: 10px;
+            font-size: 20px;
+            color: #555;
+            text-align: center;          
+            background-color: #e9e9e9;
+            padding: 5px;
+            border-radius: 5px;
+            color: #555;
+        }
+
+
+        .star {
+            position: relative;
+            display: block;
+            width: 100px;
+            height: 100px;
+            background: transparent;
+            clip-path: polygon(
+            50% 0%,
+            61% 35%,
+            98% 35%,
+            68% 57%,
+            79% 91%,
+            50% 70%,
+            21% 91%,
+            32% 57%,
+            2% 35%,
+            39% 35%
+        );
+            background-color: #ffd700;
+            box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+        }
+      .circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #ffd700;
+        }
+
+        .square, .rectangle {
+            background-color: #4caf50;
+        }
+
+        .square {
+            width: 80px;
+            height: 80px;
+        }
+
+        .rectangle {
+            width: 100px;
+            height: 60px;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 80px solid #f44336;
+        }        
+        .ellipse {
+            width: 100px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #673ab7;
+        }
+        
+        .star {
+            position: relative;
+            display: block;
+            width: 100px;
+            height: 100px;
+            background: transparent;
+            clip-path: polygon(
+            50% 0%,
+            61% 35%,
+            98% 35%,
+            68% 57%,
+            79% 91%,
+            50% 70%,
+            21% 91%,
+            32% 57%,
+            2% 35%,
+            39% 35%
+        );
+            background-color: #ffd700;
+            box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .hexagon {
+            width: 80px;
+            height: 60px;
+            background-color: #8a2be2;
+            clip-path: polygon(50% 0%, 0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%);
+}
+
+        .diamond {
+            width: 80px;
+            height: 80px;
+            background-color: #03a9f4;
+            transform: rotate(45deg);
+        }
+
+
+        .arrow {
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 70px solid #4caf50;
+            position: relative;
+        }
+
+        .arrow:after {
+            content: "";
+            position: absolute;
+            top: 70px;
+            left: -25px;
+            width: 50px;
+            height: 10px;
+            background-color: #4caf50;
+        }
+
+
+        .triangle-up {
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 60px solid #ffa500;
+        }
+
+    .triangle-down {
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-top: 60px solid #ffa500;
+    }
+
+    .diamond-outline {
+            width: 100px;
+            height: 70px;
+            background-color: transparent;
+            border: 2px solid #20b2aa;
+            transform: rotate(45deg);
+    }
+
+    .rhombus-outline {
+            width: 80px;
+            height: 60px;
+            background-color: transparent;
+            border: 2px solid #4682b4;
+            transform: rotate(45deg);
+    }
+
+        .crescent {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            box-shadow: -25px 0 0 0 #f44336;
+            background-color: white;
+        }
+        .trapezoid {
+            border-bottom: 50px solid #009688;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            height: 0;
+            width: 100px;
+        }  
+
+        .octagon {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            background-color: #795548;
+        }
+
+        .octagon:before,
+        .octagon:after {
+            content: "";
+            position: absolute;
+            background-color: #795548;
+            width: 42px;
+            height: 42px;
+        }
+
+        .octagon:before {
+            top: -21px;
+            left: 9px;
+            transform: rotate(45deg);
+        }
+
+        .octagon:after {
+            bottom: -21px;
+            left: 9px;
+            transform: rotate(45deg);
+        }
+
+        .sphere {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #3b5998, #8b9dc3);
+        }
+
+        .cylinder {
+            width: 50px;
+            height: 100px;
+            background: linear-gradient(to bottom, #4caf50, #388e3c);
+            border-radius: 50px / 25px;
+        }
+
+        .oval {
+            width: 100px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #673ab7;
+        }
+
+        .rhombus {
+            width: 80px;
+            height: 80px;
+            background-color: #2196f3;
+            transform: rotate(45deg);
+        }
+
+        .parallelogram {
+            width: 100px;
+            height: 60px;
+            background-color: #f44336;
+            transform: skew(20deg);
+        }
+
+        .sphere {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #3b5998, #8b9dc3);
+        }
+
+        .pentagon {
+            position: relative;
+            width: 60px;
+            border-bottom: 35px solid #ff5722;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            height: 0;
+        }
+
+        .pentagon:after {
+            content: "";
+            position: absolute;
+            top: 35px;
+            left: -30px;
+            width: 0;
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-top: 35px solid #ff5722;
+        }
+
+        .octagon {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            background-color: #795548;
+        }
+
+        .octagon:before,
+        .octagon:after {
+            content: "";
+            position: absolute;
+            background-color: #795548;
+            width: 42px;
+            height: 42px;
+        }
+
+        .octagon:before {
+            top: -21px;
+            left: 9px;
+            transform: rotate(45deg);
+        }
+
+        .octagon:after {
+            bottom: -21px;
+            left: 9px;
+            transform: rotate(45deg);
+        }
+
+                .heart {
+            position: relative;
+            width: 80px;
+            height: 70px;
+            background-color: #e91e63;
+            transform: rotate(-45deg);
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background-color: #e91e63;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -35px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: 35px;
+            top: 0;
+        }
+
+.tile-text{
+	color: red;
+	}
+
+.tile-note {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    /* Add this 👇 */
+    transform: translateX(-50%);
+    width: 200px;
+    background: #fff9c4;
+    border: 1px solid #f0e68c;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    font-size: 13px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 100;
+}
+
+.tile:hover .tile-note {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.tile-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+/* Little arrow below the note */
+.note-arrow {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+	border-top: 6px solid #e0c300; /* darker yellow */
+}	      
+    </style>
+</head>
+<body>
+
+<header>
+	<div class="container">
+		
+    <div class="column1-logo-icon">
+        <img src="logo.png" alt="Logo" style="max-height: 55px;">
+    </div>
+    
+    <div class="column2-nav-pane">
+      <a class ="explore-btn" href="Explore.html">Explore</a>
+      <a class ="stories-btn" href="Stories.html">Stories</a>
+      <a class ="types-btn" href="Type_Of_Shape.html">Types</a>
+      <a class ="gallery-btn" href="Gallery.html">Gallery</a>
+      <a class ="about-btn" href="About.html">About</a>    
+           
+    </div>  
+      
+    <input type="text" id="search-box" placeholder="Search...">
+    <p id="message" class="no-match" style="display: none;">No matching data found.</p>
+    </div>
+    
+   
+    <div class="column4-home">
+    <a href="HomePage.html" class="home-link">
+        <img src="home-icon.png" alt="Home" style="max-height: 35px;">
+        <span class="home-text">Home</span>
+    </a>
+</div>
+    
+</div>  
+
+</header>
+
+<main>
+
+ 
+   <!-- Content Section -->
+
+<section class="content-section" id="explore">
+	<h2>Lets Explore Shapes Gallery</h2>
+
+ <section class="content">
+ 
+  <div class="card">
+     <div class="label">Basic Shapes</div>
+
+      <div class="tile-container">
+
+
+
+<div class="tile-wrapper">
+  <div class="tile" onclick="window.location.href='circle.html'">
+    <div class="shape circle"></div>
+    <div class="tile-note">
+      <strong>Circle</strong><br>
+      A round shape with no edges.
+      <div class="note-arrow"></div>
+    </div>
+  </div>
+  <div class="tile-name">Circle</div>
+</div>
+
+
+
+<div class="tile-wrapper">
+  <div class="tile" onclick="window.location.href='circle.html'">
+    <div class="shape square"></div>
+    <div class="tile-note">
+      <strong>Circle</strong><br>
+      A round shape with no edges.
+      <div class="note-arrow"></div>
+    </div>
+  </div>
+  <div class="tile-name">Square</div>
+</div>
+
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape triangle"></div>
+        </div>
+            <div class="tile-name">Triangle</div>
+        </div>
+                 
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape hexagon"></div>
+        </div>
+            <div class="tile-name">Hexagon</div>
+        </div>
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape trapezoid"></div>
+        </div>
+            <div class="tile-name">Trapezoid</div>
+        </div>               
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape oval"></div>
+        </div>
+            <div class="tile-name">Oval</div>
+        </div>     
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape rhombus"></div>
+        </div>
+            <div class="tile-name">Rhombus</div>
+        </div>
+        
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape parallelogram"></div>
+        </div>
+            <div class="tile-name">Parallelogram</div>
+        </div>                    
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape rectangle"></div>
+        </div>
+            <div class="tile-name">Rectangle</div>
+        </div>   
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape pentagon"></div>
+        </div>
+            <div class="tile-name">Pentagon</div>
+        </div>   
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape octagon"></div>
+        </div>
+            <div class="tile-name">Octagon</div>
+        </div>   
+  
+    </div> 
+     
+   </div> 
+ <br>  
+  <div class="card">
+
+     <div class="label">3D Shapes (Solids)s</div>
+
+      <div class="tile-container">	  
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape cylinder"></div>
+        </div>
+            <div class="tile-name">Cylinder</div>
+        </div>
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape sphere"></div>
+        </div>
+            <div class="tile-name">Sphere</div>
+        </div> 
+        
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape cone"></div>
+        </div>
+            <div class="tile-name">Cone</div>
+        </div> 
+                        
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape pyramid"></div>
+        </div>
+            <div class="tile-name">Pyramid</div>
+        </div>
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape tetrahedron"></div>
+        </div>
+            <div class="tile-name">Tetrahedron</div>
+        </div>        
+        
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape tetrahedron"></div>
+        </div>
+            <div class="tile-name">Tetrahedron</div>
+        </div>         
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape cctahedron"></div>
+        </div>
+            <div class="tile-name">Octahedron</div>
+        </div>
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape dodecahedron"></div>
+        </div>
+            <div class="tile-name">Dodecahedron</div>
+        </div>        
+        
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape icosahedron"></div>
+        </div>
+            <div class="tile-name">Icosahedron</div>
+        </div> 
+        
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape torus"></div>
+        </div>
+            <div class="tile-name">Torus</div>
+        </div> 
+</div>
+</div>
+ <br>  
+  <div class="card">
+
+     <div class="label">Complex or Irregular Shapes</div>
+
+      <div class="tile-container">	  
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape heart"></div>
+        </div>
+            <div class="tile-name">Heart</div>
+        </div>
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape crescent"></div>
+        </div>
+            <div class="tile-name">Crescent</div>
+        </div>
+        
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape arrow"></div>
+        </div>
+            <div class="tile-name">Arrow</div>
+        </div>
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape diamond"></div>
+        </div>
+            <div class="tile-name">Diamond</div>
+        </div>
+
+		<div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape star"></div>
+        </div>
+            <div class="tile-name">Star</div>
+        </div>
+                        
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape cross"></div>
+        </div>
+            <div class="tile-name">Cross</div>
+        </div>
+        
+		<div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape club"></div>
+        </div>
+            <div class="tile-name">Club</div>
+        </div>
+                        
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape spade"></div>
+        </div>
+            <div class="tile-name">Spade</div>
+        </div>        
+
+</div>
+</div>
+ <br>  
+  <div class="card">
+
+     <div class="label">Curved Shapes</div>
+
+      <div class="tile-container">	  
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape arc"></div>
+        </div>
+            <div class="tile-name">Arc</div>
+        </div>
+        
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape sector"></div>
+        </div>
+            <div class="tile-name">Sector</div>
+        </div>        
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape segment"></div>
+        </div>
+            <div class="tile-name">Segment</div>
+        </div>
+        
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape semi-circle"></div>
+        </div>
+            <div class="tile-name">Semi-circle</div>
+        </div>
+        
+</div>
+</div>
+ <br>  
+  <div class="card">
+
+     <div class="label">Natural or Abstract Shapes</div>
+
+      <div class="tile-container">	  
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape leaf"></div>
+        </div>
+            <div class="tile-name">Leaf</div>
+        </div>
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape cloud"></div>
+        </div>
+            <div class="tile-name">Cloud</div>
+        </div>        
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape raindrop"></div>
+        </div>
+            <div class="tile-name">Raindrop</div>
+        </div>
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape wave"></div>
+        </div>
+            <div class="tile-name">Wave</div>
+        </div>
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape spiral"></div>
+        </div>
+            <div class="tile-name">Spiral</div>
+        </div>
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape amoeba"></div>
+        </div>
+            <div class="tile-name">Amoeba</div>
+        </div>
+                
+</div>
+</div>
+ <br>  
+  <div class="card">
+
+     <div class="label">Symbolic or Cultural Shapes</div>
+
+      <div class="tile-container">	  
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape yin-yang"></div>
+        </div>
+            <div class="tile-name">Yin-Yang</div>
+        </div>
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape mandala"></div>
+        </div>
+            <div class="tile-name">Mandala</div>
+        </div>
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape ankh"></div>
+        </div>
+            <div class="tile-name">Ankh</div>
+        </div>
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape swastika"></div>
+        </div>
+            <div class="tile-name">Swastika</div>
+        </div>                
+  
+</div>
+</div>
+ <br>  
+  <div class="card">
+
+     <div class="label">Mathematical and Fractal Shapes</div>
+
+      <div class="tile-container">	  
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape möbius strip"></div>
+        </div>
+            <div class="tile-name">Möbius Strip</div>
+        </div>
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape koch snowflake"></div>
+        </div>
+            <div class="tile-name">Koch Snowflake</div>
+        </div>    
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape sierpinski trianglep"></div>
+        </div>
+            <div class="tile-name">Sierpinski Trianglep</div>
+        </div>
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape mandelbrot set"></div>
+        </div>
+            <div class="tile-name">Mandelbrot Set</div>
+        </div> 
+    
+</div>
+</div>
+ <br>  
+  <div class="card">
+
+     <div class="label">Shapes in Letters or Numbers</div>
+
+      <div class="tile-container">	  
+
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape circle-based letters"></div>
+        </div>
+            <div class="tile-name">Circle-Based Letters (e.g., "O")</div>
+        </div>
+    
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape triangle-based symbols"></div>
+        </div>
+            <div class="tile-name">Triangle-Based Symbols (e.g., "Δ")</div>
+        </div>    
+        
+        <div class="tile-wrapper">
+            <div class="tile">
+            <div class="shape squared numbers"></div>
+        </div>
+            <div class="tile-name">Squared Numbers (Graphical representation of "n²")</div>
+        </div>
+                                
+ </div>               	  
+ </section>
+
+</section>
+   
+
+</main>
+
+  <!-- Footer -->
+<footer>
+    <p>&copy; 2024 Shapes Exploration. All rights reserved. | <a href="About.html">About</a></p>
+</footer>
+	
+
+    <script>
+	document.addEventListener('DOMContentLoaded', () => {
+    const searchBox = document.getElementById('search-box');
+    const contentDiv = document.getElementById('explore');
+    const message = document.getElementById('message');
+
+    // Event listener for input to search and highlight
+    searchBox.addEventListener('input', function () {
+        const query = this.value.toLowerCase();
+        let found = false;
+
+        // Clear previous highlights
+        const paragraphs = contentDiv.querySelectorAll('p');
+        paragraphs.forEach(paragraph => {
+            paragraph.innerHTML = paragraph.textContent; // Reset content
+        });
+
+        // Hide no-match message initially
+        message.style.display = 'none';
+
+        // Search and highlight matches
+        paragraphs.forEach(paragraph => {
+            const text = paragraph.textContent.toLowerCase();
+            if (text.includes(query) && query.trim() !== '') {
+                found = true;
+                const regex = new RegExp(`(${query})`, 'gi');
+                paragraph.innerHTML = paragraph.textContent.replace(regex, '<span class="highlight">$1</span>');
+            }
+        });
+
+        // Show message if no matches found
+        if (!found && query.trim() !== '') {
+            message.style.display = 'block'; // Show the "No matching data found" message
+        }
+    });
+
+    // Reset search box when clicking outside of it
+    document.addEventListener('click', function (e) {
+        if (!searchBox.contains(e.target)) {
+            searchBox.value = '';  // Reset the input box
+            message.style.display = 'none';  // Hide the "No matching data found" message
+            // Reset the highlighted text in the content div
+            const paragraphs = contentDiv.querySelectorAll('p');
+            paragraphs.forEach(paragraph => {
+                paragraph.innerHTML = paragraph.textContent; // Reset content
+            });
+        }
+    });
+
+    // Prevent the document click event from firing when clicking inside the search box
+    searchBox.addEventListener('click', function (e) {
+        e.stopPropagation();
+    });
+});
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get all tiles
+        const tiles = document.querySelectorAll(".tile");
+
+        // Loop through each tile
+        tiles.forEach(tile => {
+            // Check if the tile has a shape
+            const shape = tile.querySelector(".shape");
+
+            // Skip tiles without shapes
+            if (!shape) return;
+
+            // Check if the shape is visibly styled
+            const computedStyles = window.getComputedStyle(shape);
+
+            // Check for visible dimensions or a visible border
+            const hasVisibleStyles =
+                parseInt(computedStyles.width) > 0 ||
+                parseInt(computedStyles.height) > 0 ||
+                computedStyles.borderStyle !== "none";
+
+            // Check for visibility of pseudo-elements
+            const beforeContent = window.getComputedStyle(shape, "::before").content;
+            const afterContent = window.getComputedStyle(shape, "::after").content;
+
+            // If no visible styles or pseudo-elements, add "In Progress" text
+            if (!hasVisibleStyles && beforeContent === "none" && afterContent === "none") {
+                // Create a "In Progress" text element
+                const progressText = document.createElement("div");
+                progressText.classList.add("tile-text");
+                progressText.textContent = "In Progress.... !";
+
+                // Append the text to the tile
+                tile.appendChild(progressText);
+            }
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
+
+
+    
