@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring Shapes</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+	.quote-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.quote-card {
+    background: #ecf0f1;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    font-style: italic;
+    color: black;
+    width: 320px;
+    height: 350px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-size: cover; /* Ensures background image covers the card */
+    background-position: center; /* Centers the background image */
+}
+
+.quote-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.quote-card h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.quote-card span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #f1c40f;
+}
+
+.quote-link {
+    display: block;
+    font-size: 16px;
+    margin-top: auto;
+    margin-bottom: 10px;
+    color: #2980b9;
+    text-decoration: none;
+}
+
+.quote-link:hover {
+    text-decoration: underline;
+}
+
+/* Ensure each section has 3 cards in line */
+.quote-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* Media Queries for smaller screens */
+@media screen and (max-width: 768px) {
+    .quote-card {
+        width: 100%;
+        max-width: 360px;
+        height: 380px;
+    }
+
+    .quote-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row on medium screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .quote-container {
+        grid-template-columns: 1fr; /* 1 card per row on small screens */
+        align-items: center;
+    }
+
+    .quote-card {
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+ <header>
+  <div class="container">
+		
+    <div class="column1-logo-icon">
+        <img src="logo-icon.png" alt="Logo">
+    </div>
+    
+    <div class="column2-nav-pane">      
+      <a class ="stories-btn" href="Stories.html">Stories</a>
+      <a class ="types-btn" href="Type_Of_Shape.html">Types</a>
+      <a class ="gallery-btn" href="Gallery.html">Gallery</a>
+      <a class ="about-btn" href="About.html">About</a>    
+           
+    </div>  
+      
+    <input type="text" id="search-box" placeholder="Search...">
+    <p id="message" class="no-match" style="display: none;">No matching data found.</p>
+    </div>
+    
+   
+    <div class="column4-home">
+    <a href="" class="home-link">
+        <img src="home-icon.png" alt="Home" style="max-height: 35px;">
+        <span class="home-text">Home</span>
+    </a>
+</div>
+    
+</div>  
+
+</header>
+ 
+<main>
+<!-- Content Section -->
+   
+<section class="content-section-index-page" id="explore">
+	<div class="content">
+    <section class="quote-section">
+        <h1>Biblical Wisdom</h1>
+        <div class="quote-container">
+            <div class="quote-card" style="background-image: url('your-image-path-1.jpg');">
+                <h2>Divine Creation</h2>
+                <p>"He has inscribed a circle on the face of the waters at the boundary between light and darkness."</p>
+                <span>- Job 26:10</span>
+                <a href="#" class="quote-link">Click to learn more</a>
+            </div>
+            <div class="quote-card" style="background-image: url('your-image-path-2.jpg');">
+                <h2>Foundation of the Earth</h2>
+                <p>"Thus says the Lord, who made the earth, the Lord who formed it to establish it—the Lord is his name."</p>
+                <span>- Jeremiah 33:2</span>
+                <a href="#" class="quote-link">Click to learn more</a>
+            </div>
+            <div class="quote-card" style="background-image: url('your-image-path-3.jpg');">
+                <h2>Perfect Design</h2>
+                <p>"The lines have fallen for me in pleasant places; indeed, I have a beautiful inheritance."</p>
+                <span>- Psalm 16:6</span>
+                <a href="#" class="quote-link">Click to learn more</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="quote-section">
+        <h1>Geometrical Wisdom</h1>
+        <div class="quote-container">
+            <div class="quote-card" style="background-image: url('your-image-path-4.jpg');">
+                <h2>Nature's Geometry</h2>
+                <p>"The whole of nature is contained within the geometric forms."</p>
+                <span>- Plato</span>
+                <a href="#" class="quote-link">Click to learn more</a>
+            </div>
+            <div class="quote-card" style="background-image: url('your-image-path-5.jpg');">
+                <h2>Mathematical Beauty</h2>
+                <p>"Geometry will draw the soul toward truth and create the spirit of philosophy."</p>
+                <span>- Plato</span>
+                <a href="#" class="quote-link">Click to learn more</a>
+            </div>
+            <div class="quote-card" style="background-image: url('your-image-path-6.jpg');">
+                <h2>Universal Patterns</h2>
+                <p>"Mathematics is the alphabet with which God has written the universe."</p>
+                <span>- Galileo Galilei</span>
+                <a href="#" class="quote-link">Click to learn more</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="quote-section">
+        <h1>Inspirational Wisdom</h1>
+        <div class="quote-container">
+            <div class="quote-card" style="background-image: url('your-image-path-7.jpg');">
+                <h2>Shape of Life</h2>
+                <p>"Life is shaped by the curves and edges we dare to explore."</p>
+                <span>- Unknown</span>
+                <a href="#" class="quote-link">Click to learn more</a>
+            </div>
+            <div class="quote-card" style="background-image: url('your-image-path-8.jpg');">
+                <h2>Angles of Perspective</h2>
+                <p>"A person’s perspective shapes their reality, just like angles shape a structure."</p>
+                <span>- Unknown</span>
+                <a href="#" class="quote-link">Click to learn more</a>
+            </div>
+            <div class="quote-card" style="background-image: url('your-image-path-9.jpg');">
+                <h2>Balance and Symmetry</h2>
+                <p>"In life, as in geometry, balance and symmetry lead to beauty."</p>
+                <span>- Unknown</span>
+                <a href="#" class="quote-link">Click to learn more</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+</section>
+</main>
+<!-- Footer -->
+   <footer>
+    <p>&copy; 2024 Shapes Exploration. All rights reserved. | <a href="About.html">About</a></p>
+</footer>
+
+   
+	<script src="script.js"></script>
+
+</body>
+</html>
