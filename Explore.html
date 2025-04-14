@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exploring Shapes</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+	  
+ 
+
+  /* Card styles for content sections */
+    .card {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      border-radius: 20px;
+      background: white;
+      top: 0;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .content-section {
+      padding-top: 1px; /* Adjust to the height of the header */
+    }
+
+    /* Content Section */
+    .content-section {
+      padding: 50px 10%;
+    }
+
+    .content-section {
+      padding-top: 10px;
+      /* Adjust to the height of the header */
+    }
+
+    h2 {
+      color: #0d2259;
+      top: 0;
+    }
+    
+  /* Sets the space between lines of text for better readability */
+    p {
+      line-height: 1.5;      
+    }
+
+
+/* Grid layout for tiles */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Set exactly 3 tiles per row */
+    gap: 30px; /* Space between tiles */
+    padding: 0; /* Optional: Adjust padding as needed */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+
+/* Styling for individual tiles */
+.tile_explore {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 30px; /* Increased padding for larger content */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.tile_explore:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tile_explore h2 {
+    font-size: 1.8em; /* Larger heading */
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.tile_explore p {
+    font-size: 1.2em; /* Larger paragraph text */
+    color: #777;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Mobile styling */
+@media screen and (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr; /* 1 tile per row on smaller screens */
+    }
+
+    .tile_explore {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+}        
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+                text-align: center;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+            h1 {
+               
+                text-align: center;
+            }
+  </style>
+</head>
+
+<body>
+	       
+  <header>
+
+    <div class="container">
+
+    <div class="column1-logo-icon">
+        <img src="logo-icon.png" alt="Logo">
+    </div>
+
+      <div class="column2-nav-pane">
+        <a class="explore-btn" href="explore.html">Explore</a>
+        <a class="stories-btn" href="Stories.html">Stories</a>
+        <a class="types-btn" href="Type_Of_Shape.html">Types</a>
+        <a class="gallery-btn" href="Gallery.html">Gallery</a>
+        <a class="about-btn" href="About.html">About</a>
+
+      </div>
+
+      <input type="text" id="search-box" placeholder="Search...">
+      <p id="message" class="no-match" style="display: none;">No matching data found.</p>
+    </div>
+
+    <div class="column4-home">
+      <a href="index.html" class="home-link">
+        <img src="home-icon.png" alt="Home" style="max-height: 35px;">
+        <span class="home-text">Home</span>
+      </a>
+    </div>
+
+    </div>
+
+  </header>
+
+  <main>
+
+    <!-- Content Section -->
+    <!-- Header Section -->
+    <h1>Start Exploring Shapes</h1>  
+    <section class="content-section" id="explore">
+
+    <div class="grid">
+
+        <a href="explore_MemoryGame.html" class="tile_explore">
+            <h2>Games</h2>
+            <p>Play interactive games to learn about shapes!</p>
+            <video width="100%" height="auto" controls autoplay>
+                <source src="wip.png" type="video/mp4">
+            </video>
+        </a> 
+               
+        <a href="animated_Main-page.html" class="tile_explore">
+            <h2>Animated Shapes</h2>
+            <p>Watch fascinating animations of different shapes.</p>
+            <video width="100%" height="auto" controls autoplay>
+            <source src="AnimatedShapes_2024-12-11 16-18-54.webm" type="video/mp4">
+            </video>
+        </a>
+        
+        <a href="song_Main-page.html" class="tile_explore">
+            <h2>Song in Shapes</h2>
+            <p>Explore songs related to shapes</p>
+            <img src="song_shape_img-bg.webp" alt="Error image" style="width: 100%; height: auto;">
+
+        </a>           
+        <a href="wip.html" class="tile_explore">
+            <h2>Poetry in Shapes</h2>
+            <p>We're working hard to bring this page to life. Please check back later!</p>
+            <img src="wip.png" alt="Error image" style="width: 100%; height: auto;">
+
+        </a>
+                       
+		<a href="quotes-page.html" class="tile_explore">
+            <h2>Quotes in Shapes</h2>
+            <p>Explore quotes related to shapes</p>
+            <img src="quotes- alt="Error image" style="width: 100%; height: auto;">
+        </a>
+        
+        <a href="explore_Quiz_Shape.html" class="tile_explore">
+            <h2>Quiz with Shapes</h2>
+            <p>We're working hard to bring this page to life. Please check back later!</p>
+             <video width="100%" height="auto" controls autoplay>
+            <source src="wip.png" type="video/mp4">
+            </video>
+        </a>   
+        <a href="wip.html" class="tile_explore">
+            <h2>Shapes with Math</h2>
+            <p>We're working hard to bring this page to life. Please check back later!</p>
+            <img src="wip.png" alt="Error image" style="width: 100%; height: auto;">
+			
+        </a> 
+          
+                  <a href="Fun_facts.html" class="tile_explore">
+            <h2>Fun Facts</h2>
+            <p>Discover fun facts about shapes</p>
+            <video width="100%" height="auto" controls autoplay>
+				<source src="wip.png" type="video/mp4">
+            </video>
+        </a>
+ 
+        <a href="wip.html" class="tile_explore">
+            <h2>Names of Shapes</h2>
+            <p>We're working hard to bring this page to life. Please check back later!</p>
+            <img src="wip.png" alt="Error image" style="width: 100%; height: auto;">
+
+        </a>                       
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Shapes Exploration. All rights reserved. | <a href="About.html">About</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

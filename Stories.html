@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types of Shapes</title>
+    <link rel="stylesheet" href="footer.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+		main {
+			margin-top: 120px; /* Header + Nav height combined */
+		}
+        /* Header Styles */
+        header {
+            background-color: #041a47;
+            color: white;           
+            text-align: center;
+			position: fixed;
+			top: 0;
+			width: 100%;
+			z-index: 1000;	
+			height: 60px;
+			margin: 0;
+			padding: 0;
+			margin-right: 5px;
+			justify-content: center;			
+			flex-wrap: nowrap; /* Prevent wrapping */
+			display: grid;
+			grid-template-columns: 11% 84%  13%; /* Adjusted column percentages */      
+			width: 100%; /* Ensures the grid takes up the full width of the container */         
+			align-items: center; /* Aligns items vertically within their grid cells */      
+			grid-template-rows: auto; /* Ensure rows take up the content height */					
+        }
+      
+      header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        /* Navigation Styles */
+        nav {			
+            background-color: #0d2259;
+            text-align: center;
+            padding: 10px 0;
+			position: fixed;
+			top: 60px; /* Adjust this based on the height of your header */
+			width: 100%;
+			z-index: 1000;	
+			margin-left: 0;	           
+        }
+  
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            align-items: center; 
+        }
+
+        nav a:hover {
+            color: #f39c12;
+        }
+
+
+<!--start dropdown menu -->
+/* General Navigation Bar */
+nav {
+    display: flex; /* Arrange all navigation items in a row */
+    align-items: center; /* Vertically align items */
+    justify-content: space-between; /* Spread items across the navbar */
+    background-color: #007bb5; /* Navbar background color */
+    padding: 10px 20px; /* Padding for navbar */
+    
+}
+
+/* Navigation Links and Dropdown */
+nav a,
+.nav-buttons {
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    margin: 0 15px; /* Space between items */
+    font-size: 16px; /* Font size */
+    display: inline-block; /* Display links inline */
+    margin-left: 5px
+}
+
+/* Dropdown Button */
+/* Style for "Select a Story" button */
+.explore-button {
+	display: block; /* Makes the button behave like a block element */
+    color: white; /* Matches navigation link color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Matches font */
+    font-size: 16px; /* Matches font size */
+    background: transparent; /* No background for consistency */
+    border: none; /* Remove border */
+    padding: 0 15px; /* Match the spacing of other navigation items */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    text-decoration: none; /* Consistent with links */
+    font-weight: bold; /* Matches the bold style of the other items */
+}
+
+/* Hover effect for "Select a Story" button */
+.explore-button:hover {
+    color: #f39c12; /* Matches hover color for navigation links */
+}
+
+/* Dropdown Menu */
+.nav-buttons {
+    position: relative; /* Position dropdown relative to trigger */
+}
+
+.dropdown-content {
+    display: none; /* Hide dropdown by default */
+    position: absolute; /* Position dropdown absolutely */
+    top: 100%; /* Position directly below the button */
+    left: 0; /* Align to the left */
+    background-color: white; /* Background color */
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2); /* Shadow for dropdown */
+    z-index: 1; /* Ensure dropdown appears above other elements */
+    min-width: 200px;
+    min-width: 400px; /* Set a minimum width to allow enough space for titles */
+	overflow: hidden;
+	border-radius: 2px;
+    width: auto; /* Allow dropdown to expand automatically based on content */
+    padding: 6px;
+
+}
+
+/* Dropdown Links */
+.dropdown-content a {
+    color: #004d99; /* Text color for dropdown items */
+    padding: 10px 15px; /* Padding for links */
+    text-decoration: none; /* Remove underline */
+    display: block; /* Make each link a block */
+    text-align: left; /* Align text to the left */
+}
+
+/* Dropdown Link Hover Effect */
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* Change background on hover */
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-content {
+    display: block; /* Show dropdown when hovered */
+}
+
+/* Ensure All Items Stay in One Row */
+nav > * {
+    flex-shrink: 0; /* Prevent items from shrinking */
+    
+}
+
+<!--end dropdown menu-->
+                
+        /* Container for the article content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;            
+        }
+        
+        /* Main Titles */
+        h2 {
+            color: #0d2259;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 10px;
+            margin-top: 10px;
+        }
+        
+        h3 {
+            color: #34495e;
+        }
+
+        /* Paragraph and List Styles */
+        p {
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+
+        ul {           
+            margin-left: 20px;
+            line-height: 1.0;
+        }
+        li {
+            margin: 5px 0;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+                text-align: center;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+    .card {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin: 30px;
+      border-radius: 20px;
+      background: white; 
+      height: auto;     
+    }
+                  
+     /* Home link styles */
+    .home-link {
+      position: relative;
+      /* Allow positioning of the text below the image */
+      text-decoration: none;
+      /* Remove underline */
+      color: white;
+      /* Default text color */
+    }
+
+    .home-text {
+      display: none;
+      /* Hide the text initially */
+      position: absolute; /* Position it below the image */
+      top: 10px; /* Adjust to place the text just below the image */
+      left: 20%; /* Center the text relative to the anchor */
+      transform: translateX(-50%); /* Adjust for centering */
+      font-weight: bold;
+      /* Make the text bold */
+      color: white;
+      /* Ensure visibility */
+      font-size: 12px;
+    }
+
+    .home-link:hover .home-text {
+      display: block;
+      /* Show the text on hover */
+    }
+
+    .home-link:hover img {
+      opacity: 0.7;
+      /* Slightly fade the image on hover */
+    }
+ 
+  /* Search box styles */
+    .column3-search-inbox {
+      grid-column: 3; /* Third column */
+      width: 100%; /* Ensures the search box stretches to fit the width */
+      text-align: center; /* Centers the content inside the column */
+      display: flex; /* Use flex to keep the search box in a single row */
+      margin-left: 30%;
+    }
+
+    .column3-search-inbox input[type="text"] {
+      width: 100%; /* Ensure the search box takes up enough space without breaking */
+      padding: 10px;
+      font-size: 16px;
+      box-sizing: border-box; /* Include padding in width calculation */
+      white-space: nowrap; /* Prevents wrapping */
+    }
+
+ /* Highlight styles for search functionality */
+    .highlight {
+      background-color: yellow;
+    }
+    .highlight {
+      background-color: yellow;
+    }
+    
+ /* Error message styles for no match */
+    .no-match {
+      color: red;
+      font-style: italic;
+    }
+
+    #content {
+      line-height: 1.6;
+    }
+
+    .no-match {
+      position: absolute;
+      margin-right: 20%;
+      width: 100%;
+      padding: 5px;
+      font-size: 14px;
+      color: #f44336; /* Red color for error message */
+      text-align: center;
+      top: 15%; /* Vertically position at 25% of the container's height */
+      left: 72%; /* Horizontally position at 50% of the container's width */
+      transform: translate(-35%, -25%);/* Adjust to center the text perfectly */
+    }
+ 
+    #search-box {
+      width: 230px;
+      padding: 6px;
+      margin-bottom: 0px;
+      margin-left: 30px;
+    }
+             h1 {
+                
+                margin-right 5px;
+            }
+            
+     .column2-title{
+		 margin-right: 15px;
+		 }       
+
+        /* Navigation Styles */
+        nav {			
+            background-color: #0d2259;
+            text-align: center;
+            padding: 10px 0;
+			position: fixed;
+			top: 60px; /* Adjust this based on the height of your header */
+			width: 100%;
+			z-index: 1000;
+        }
+  
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+			color: #f39c12; 			
+        }
+        
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+
+            /* Main Titles */
+        h2 {
+            color: #0d2259;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: #34495e;
+        }
+     
+		.link-item {
+				cursor: pointer;
+				padding: 10px;
+				transition: background-color 0.3s;
+				color: blue; /* Default color for clickable links */
+			}
+
+		.link-item:hover {
+				background-color: #f0f0f0;
+			}   
+
+#shapeAdventureTarget,
+#biblicalTarget,
+#mythicalStoryTarget,
+#submit-storiesTarget {
+    position: relative;
+    top: -100px; /* Adjust based on your header height */
+    visibility: hidden;
+}
+
+.story-card {
+    max-width: 800px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    border: 2px solid #007bff;
+}
+
+.card-content {
+    text-align: left;
+}
+
+.story-card h1 {
+    color: #007bff;
+    font-size: 28px;
+    text-align: center;
+}
+
+.story-card h2 {
+    color: #333;
+    font-size: 22px;
+    margin-top: 15px;
+}
+
+.story-card h3 {
+    color: #555;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.story-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+}
+		      
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+		
+    <div class="column1-logo-icon">
+        <img src="logo-icon.png" alt="Logo" style="max-height: 55px;">
+    </div>		
+
+     <div class="column2-title"> 
+        <h1>Welcome to Shape Stories</h1>
+     </div>   
+
+    <div class="column4-home">
+      <a href="index.html" class="home-link">
+        <img src="home-icon.png" alt="Home" style="max-height: 35px;">
+        <span class="home-text">Home</span>
+      </a>
+    </div>
+    </header>				
+					
+    <!-- Navigation -->
+    <nav>
+					<a href="">Main Story</a>
+					<a href="#biblicalTarget">Biblical</a>  
+					<a href="#mythicalStoryTarget">Myths & Legends</a>
+					<a href="#shapeAdventureTarget">Adventures</a>
+					<a href="wip.html">More stories</a>
+					<a href="#submit-storiesTarget">Submit Stories</a>
+ 
+      <input type="text" id="search-box" placeholder="Search...">
+      <p id="message" class="no-match" style="display: none;">No matching data found</p>
+       
+    </nav>
+    
+<main class="content">
+<div class="card"> 	
+    <h1>Shape Stories: A Journey Through Geometry and History</h1>
+    <p>Explore the fascinating tales behind the most iconic shapes in history. Select a story to begin!</p>
+ 
+    <section id="story-content">
+        <h2>Shapes are everywhere, yet few stop to consider the tales they tell.</h2>
+        <p>From ancient cave carvings to the sleek designs of modern 
+architecture, shapes have profoundly influenced human progress. As 
+visual symbols of symmetry, balance, and mystery, they form the very 
+language of the universe.</p>
+		<p>Shapes are more than mathematical concepts — they are the silent 
+storytellers of our world. The perfect symmetry of the circle, the 
+structural strength of the triangle, and the intricate beauty of 
+polygons have inspired civilizations for millennia, shaping their 
+understanding of the cosmos, driving artistic expression, and deepening 
+spiritual beliefs. Each shape carries its own legacy, weaving tales of 
+discovery, innovation, and cultural significance.</p>
+		<p>Discover the stories behind shapes and their role in humanity’s 
+greatest achievements—how ancient scientists unveiled the circle’s 
+symmetry with shadows and sundials, how the Greeks measured geometric 
+precision with simple tools, and how the quest to calculate π became a 
+cornerstone of mathematics. Explore the methods and minds that turned 
+shapes into a universal language, bridging the divide between nature’s 
+patterns and human ingenuity.</p>
+		<h3>Each shape has a story:</h3>
+				
+<!--Using Unordered List:</h2> -->
+        <ul>
+            <li><strong>The Circle:</strong> A timeless symbol of infinity, revered in ancient mathematics and astronomy.</li><br>
+            <li><strong>The Triangle:</strong> A cornerstone of engineering and stability, shaping the pyramids and geometry itself.</li><br>
+            <li><strong>Polygons:</strong> Builders of complexity, from the hexagonal honeycomb of bees to the tessellations of Islamic art.</li>
+        </ul>
+
+		<p>Shapes connect us to the natural world while pushing the boundaries
+ of human imagination. They are both simple and profound, guiding 
+scientists, artists, and philosophers in their quests for knowledge and 
+beauty.</p>
+
+  
+        <p>Each shape tells a unique story, and as a reader, you have 
+the opportunity to uncover these stories in your own unique way, 
+exploring the shapes that shape our reality. So take a step into the 
+world of shapes and uncover the hidden patterns that bind the universe 
+together.</p>
+
+<div id="biblicalTarget"></div>
+        <h2>The Divine Design: A Story of Shapes in Creation</h2>
+			
+        <p>In the beginning, when God created the heavens and the earth, He formed everything with perfect order and purpose. The world was not just made with light and darkness, land and sea, but also with the very foundation of design—<strong>shapes</strong>.</p>
+
+        <p>As God shaped the world, He spoke to the <strong>Circle</strong>, saying,</p>
+        <blockquote>“You will represent eternity, for you have no beginning and no end. Just as My love is everlasting, so shall you remind My people of My unending grace.”</blockquote>
+
+        <p>Then He turned to the <strong>Triangle</strong> and said,</p>
+        <blockquote>“You shall symbolize the Holy Trinity—Father, Son, and Holy Spirit. Through you, My people will understand that I am three in one, yet indivisible.”</blockquote>
+
+        <p>Next, He called upon the <strong>Square</strong>, saying,</p>
+        <blockquote>“You will stand for stability and foundation. Just as I am the cornerstone of faith, you will represent strength and truth in the structures of My people.”</blockquote>
+
+        <p>The <strong>Star</strong> shone brightly, and God declared,</p>
+        <blockquote>“You will guide those who seek Me, just as a star led the wise men to the Savior’s birth.”</blockquote>
+
+        <p>And finally, God formed the <strong>Heart-shaped</strong> hills and valleys of the land, whispering,</p>
+        <blockquote>“This shall remind My people that love is at the center of all creation, for I am love.”</blockquote>
+
+        <p>As the world took shape, every mountain, river, and sky bore the fingerprint of the Creator’s divine design. And so, shapes were not just patterns—they were messages, reminding all who saw them that God’s order and wisdom are woven into the very fabric of creation.</p>
+
+        <p><strong>“The heavens declare the glory of God; the skies proclaim the work of His hands.”</strong> – Psalm 19:1</p>
+
+<div id="mythicalStoryTarget"></div>		
+		<h2>The Sacred Shapes: Myths and Legends of the Ancient World</h2>
+        
+        <p>Long ago, in a time when the earth was young, the gods wove the fabric of reality using the <strong>Sacred Shapes</strong>—forms that held the secrets of the universe. Each shape was gifted with power, and through them, the world was shaped into harmony.</p>
+
+        <h3>🌑 The Circle: The Symbol of Eternity</h3>
+        <p>In the heavens, the <strong>Celestial Serpent</strong> Ouroboros coiled itself into a perfect circle, swallowing its own tail. It was said that time itself flowed through this endless loop, an eternal cycle of life, death, and rebirth. Those who gazed upon the sacred circle would gain wisdom beyond their years, for they understood that all things must return to where they began.</p>
+
+        <h3>🔺 The Triangle: The Divine Balance</h3>
+        <p>The gods forged the <strong>Triangle</strong> as a symbol of power, stability, and divine balance. The three great deities of the sky, the sea, and the underworld stood at each point, bound together in an unbreakable bond. Legends say that pyramids and temples were built in its image, aligning with the stars to channel celestial energy and grant wisdom to the rulers of old.</p>
+
+        <h3>🟦 The Square: The Foundation of the Earth</h3>
+        <p>The mighty Titan <strong>Geon</strong> carved the first Square from the stones of the earth, making it the foundation of all things solid and strong. It was said that kingdoms that followed the order of the Square—justice, truth, honor, and strength—would never fall. Ancient cities were built upon square foundations, for they believed it held the balance of the four elements: earth, air, fire, and water.</p>
+
+        <h3>⭐ The Star: The Guiding Light</h3>
+        <p>In the darkest of nights, the <strong>Star of Everlight</strong> shone upon the lost and weary. Legend tells of a hero who followed the five-pointed star across distant lands, discovering treasures hidden by the gods. It became a symbol of destiny, guiding warriors, explorers, and dreamers to their true purpose.</p>
+
+        <h3>💠 The Hexagon: The Shape of Creation</h3>
+        <p>The gods of nature wove the <strong>Hexagon</strong> into the fabric of the world, hidden in the beehives of golden honey and the snowflakes that fell from the sky. It was the pattern of perfect unity, found in the very structure of creation itself. Those who honored the Hexagon were said to hold the knowledge of the gods, understanding the unbreakable bond of nature’s harmony.</p>
+
+        <p>As time passed, the Sacred Shapes became more than just symbols; they became the foundation of all things—art, architecture, and even the language of the stars. To this day, those who seek the wisdom of the ancients look to these shapes, knowing they hold the secrets of myths, legends, and the mysteries of the universe.</p>
+
+        <p><strong>For the world was not just formed by chaos, but by the order of the Sacred Shapes.</strong></p>
+
+<div id="shapeAdventureTarget"></div>
+    <h2>The Quest for the Lost Shape</h2>
+
+    <p>In a world where geometry was more than just lines and angles, there existed a legendary land called <strong>Polygonia</strong>. It was a place where shapes lived in harmony—Circles rolled freely, Triangles stood tall, and Squares built mighty structures. But one day, a powerful force caused chaos—the <strong>Lost Shape</strong>, the most ancient and powerful form, had disappeared. Without it, the balance of Polygonia began to crumble.</p>
+
+    <p>Hearing of the crisis, four brave shapes set off on a perilous adventure to find the Lost Shape and restore harmony to their world.</p>
+
+    <h3>🔴 Cirro, the Brave Circle</h3>
+    <p>Cirro was swift and agile, rolling across the lands without fear. "I will lead the way," he said, "for I can move the fastest and dodge any danger!"</p>
+
+    <h3>🔺 Trina, the Clever Triangle</h3>
+    <p>Trina was sharp and wise. "I will solve the riddles on our path," she declared, "for I have three sides, and three is the number of wisdom!"</p>
+
+    <h3>🟦 Squaro, the Strong Square</h3>
+    <p>With his four sturdy sides, Squaro was their protector. "Let me shield us from danger," he promised, "for no force can break my perfect angles!"</p>
+
+    <h3>⭐ Stellara, the Guiding Star</h3>
+    <p>Stellara, a glowing star, lit their path through the darkness. "I will guide us forward," she said, "for I shine brightest when hope is dim!"</p>
+
+    <h3>The Journey Begins</h3>
+    <p>The four heroes traveled across <strong>The Spiral Caves</strong>, where Cirro rolled over narrow bridges. They crossed <strong>The Pyramids of Anglia</strong>, where Trina solved ancient puzzles. They battled <strong>The Shadow Traps</strong>, where Squaro's strength saved them from crumbling floors. And finally, they followed Stellara's glow to <strong>The Forgotten Grid</strong>, where the Lost Shape was said to be hidden.</p>
+
+    <p>There, they found an ancient door with an inscription:</p>
+    <blockquote>“Only when all shapes unite shall the final form be revealed.”</blockquote>
+
+    <p>Realizing the truth, Cirro, Trina, Squaro, and Stellara combined their forms. The door rumbled open, revealing the <strong>Lost Shape</strong>—a glowing <strong>Hexagon</strong>, the shape of perfect unity and balance.</p>
+
+    <p>As they returned to Polygonia, the land healed, colors brightened, and balance was restored. The four heroes had proven that <strong>when different shapes come together, they create something greater than themselves.</strong></p>
+
+    <p><strong>“For no shape is complete alone, but together, they form a masterpiece.”</strong></p>
+    
+
+<div id="submit-storiesTarget"></div>	 
+    <h2>📢 Submit Your Story – Share Your Adventure!</h2>
+    <p>Do you have a <strong>legend, myth, or adventure</strong> about shapes waiting to be told?</p>
+    <p>We would love to hear your <strong>imaginative stories, creative ideas, or fascinating theories</strong>!</p>
+
+    <p>🌟 <strong>Your story could become part of Polygonia!</strong> 🌟</p>
+
+    <p>📩 <strong>Submit your tale today and inspire fellow explorers!</strong></p>
+
+    <p><strong>🔹 Connect. Create. Inspire.</strong></p>
+
+    <button onclick="location.href='submit.html'">Submit Your Story</button>
+    
+</section> 
+</div>		
+</section>
+</section></main>
+  <!-- Footer -->
+<footer>
+    <p>&copy; 2024 Shapes Exploration. All rights reserved. | <a href="About.html">About</a></p>
+</footer>
+
+ <script>
+/* Script for search box */	 
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchBox = document.getElementById('search-box');
+      const contentDiv = document.getElementById('explore');
+      const message = document.getElementById('message');
+      // Event listener for input to search and highlight
+      searchBox.addEventListener('input', function() {
+        const query = this.value.toLowerCase();
+        let found = false;
+        // Clear previous highlights
+        const paragraphs = contentDiv.querySelectorAll('p');
+        paragraphs.forEach(paragraph => {
+          paragraph.innerHTML = paragraph.textContent; // Reset content
+        });
+        // Hide no-match message initially
+        message.style.display = 'none';
+        // Search and highlight matches
+        paragraphs.forEach(paragraph => {
+          const text = paragraph.textContent.toLowerCase();
+          if (text.includes(query) && query.trim() !== '') {
+            found = true;
+            const regex = new RegExp(`(${query})`, 'gi');
+            paragraph.innerHTML = paragraph.textContent.replace(regex, '<span class="highlight">$1</span>');
+          }
+        });
+        // Show message if no matches found
+        if (!found && query.trim() !== '') {
+          message.style.display = 'block'; // Show the "No matching data found" message
+        }
+      });
+      // Reset search box when clicking outside of it
+      document.addEventListener('click', function(e) {
+        if (!searchBox.contains(e.target)) {
+          searchBox.value = ''; // Reset the input box
+          message.style.display = 'none'; // Hide the "No matching data found" message
+          // Reset the highlighted text in the content div
+          const paragraphs = contentDiv.querySelectorAll('p');
+          paragraphs.forEach(paragraph => {
+            paragraph.innerHTML = paragraph.textContent; // Reset content
+          });
+        }
+      });
+      // Prevent the document click event from firing when clicking inside the search box
+      searchBox.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    });
+    
+   
+document.querySelectorAll('.link-item').forEach(item => {
+    item.addEventListener('click', function () {
+        const target = this.getAttribute('data-target'); // Get the selected story
+        showStory(target); // Load the correct story
+
+        // Ensure scrolling happens AFTER content updates
+        setTimeout(() => {
+            requestAnimationFrame(() => {
+                const titleElement = document.getElementById(target + "Title");
+                if (titleElement) {
+                    titleElement.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+            });
+        }, 100); // Small delay to ensure the new content is inserted first
+    });
+});    
+
+
+/* script for targeting the nav link titles */
+           
+    document.querySelectorAll('.link-item').forEach(item => {
+    item.addEventListener('click', function() {
+        const target = this.getAttribute('data-target');
+        showStory(target);
+    });
+});   
+
+
+
+
+  </script>
+</body>
+</html>

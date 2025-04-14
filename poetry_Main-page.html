@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Shapes</title>
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #041a47;
+         
+            color: white;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-pane a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        .nav-pane a:hover {
+            text-decoration: underline;
+        }
+        .search-box input {
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+        .home-button {
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .title-wrapper {
+            position: relative;
+            width: 100%;
+            background-color: #0d2259;
+            
+        }
+        .title-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .title-section h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+        .content {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .left-panel {
+            flex: 1;
+            padding: 20px;
+        }
+        .left-panel ul {
+            list-style: none;
+            padding: 0;
+        }
+        .left-panel li {
+            background: #ecf0f1;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .left-panel li:hover {
+            background: #bdc3c7;
+        }
+        .right-panel {
+            flex: 2;
+            display: flex;
+
+            border-left: 2px solid #ddd;
+            min-height: 700px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: #555;
+            background: #f9f9f9;
+            border-radius: 10px;
+            margin-left: 20px;
+            padding: 20px;
+        }
+        .right-panel iframe {
+            width: 100%;            
+            min-height: 100%; /* Ensure full view */
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">LOGO</div>
+        <nav class="nav-pane">
+            <a href="#explore">Explore</a>
+            <a href="#stories">Stories</a>
+            <a href="#Explore other compositions">Types</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#about">About</a>
+        </nav>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search content..." onkeyup="searchContent()">
+        </div>
+        <a href="#home" class="home-button">Home</a>
+    </header>
+    
+    <div class="title-wrapper">
+        <section class="title-section">
+            <h1>Poetry in Shapes </h1>
+        </section>
+    </div>
+    
+    <section class="content">
+        <div class="left-panel">
+            <ul id="songList">
+                <li onclick="loadShape('poem_Whispers-of-the-Circle.html')">Whispers of the Circle</li>
+                <li onclick="loadShape('poem_The-Square’s-Silent-Strength.html')">The Square’s Silent Strength</li>
+                <li onclick="loadShape('poems_Triangles-in-Motion.html')">Triangles in Motion</li>
+                <li onclick="loadShape('poem_The-Secret-Life-of-Polygons.html')">The Secret Life of Polygons</li>
+                <li onclick="loadShape('poem_Echoes-of-the-Endless-Spiral.html')">Echoes of the Endless Spiral</li>
+                <li onclick="loadShape('poem_The-Shape-That-Binds-Us-One.html')">The Shape That Binds Us One</li>
+                <li onclick="loadShape('poem_The Shape-I-Found-in-You.html')">The Shape I Found in You</li>
+                <li onclick="loadShape('poem_The-Masterpiece-of-Shape-in-You.html')">The Masterpiece of Shape in You</li>
+                <li onclick="loadShape('poem_Shape-of-Our-Dreams.html')">Shape of Our Dreams</li>
+                <li onclick="loadShape('poem_The Shape-of-Hanging-Hope.html')">The Shape of Hanging Hope</li>
+                <li onclick="loadShape('poem_The Shape-That-Never-Lies.html')">The Shape That Never Lies</li>
+                <li onclick="loadShape('poem_The-Star-Shape.html')">You Are My Star Shape</li>
+                <li onclick="loadShape('poem_The-Only-Shape-I-Know-Is-True.html')">The Only Shape I Know Is True</li>
+                <li onclick="loadShape('poem_The Shape-That-Mirrored-You.html')">The Shape That Mirrored You</li>
+                <li onclick="loadShape('poem_Lines-That-Never-Meet.html')">Lines That Never Meet (An Ode to Parallels)</li>
+                <li onclick="loadShape('poem_The Hidden-Heart-of-a-Rhombus.html')">The Hidden Heart of a Rhombus</li>
+                <li onclick="loadShape('poem_The Shape-of-Our-Heart.html')">The Shape of Our Heart</li>
+                 <li onclick="loadShape('poem_How-is-your-Faith-shape.html')">How is your Faith's shape?</li>                
+                
+                               
+            </ul>
+        </div>
+        <div class="right-panel" id="shape-display">
+            <iframe id="shape-frame" src="song_shape_img-bg.png" ></iframe>
+        </div>
+        
+       
+    </section>
+    
+    <script>
+        function loadShape(shapePage) {
+            document.getElementById('shape-frame').src = shapePage;
+        }
+        
+        function loadShape(shapePage) {
+    let iframe = document.getElementById('shape-frame');
+    iframe.src = shapePage;
+    
+    // Wait for iframe to load, then adjust height
+    iframe.onload = function () {
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    };
+}
+window.addEventListener("load", function() {
+    var iframe = document.querySelector("iframe");
+    iframe.style.height = iframe.contentWindow.document.body.scrollHeight + "px";
+});
+
+    </script>
+</body>
+</html>
