@@ -14,3 +14,16 @@ Clone the repo and open `index.html` in your browser.
 
 ## References
 📖 [Setup GitHub Pages Guide](SETUP_GITHUB_PAGES.md)
+
+### 🧪 Testing
+This project includes unit tests to validate shape calculations.
+
+Run tests with:
+```bash
+npm test
+
+---
+
+👉 This way, you don’t need a separate repository. You can keep your **Explore-Shape** project as the main demo and simply add a `tests/` folder inside it to showcase your testing process.  
+
+Would you like me to also draft a **GitHub Actions workflow file** (`.github/workflows/test.yml`) so your tests run automatically every time you push code? That would make your repo look even more professional.
