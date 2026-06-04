@@ -1,8 +1,16 @@
-# Explore-Shape
-This is an experimental website exploring shapes using AI. 
+# Explore Shapes
+This is an experimental website exploring shapes using AI.  
+I’m learning how AI can create and manipulate different geometric forms and patterns in fun and creative ways.
 
-I'm exploring how AI can help create and play with geometric shapes in fun and creative ways.
-Through this web project, I combine animations, poetry, stories—including biblical themes—and other activities that all relate back to shapes.
+📂 [Explore Repository](https://github.com/Veri-ai/Explore-Shape) &nbsp;&nbsp;&nbsp; 🌐 [View Page](https://veri-ai.github.io/Explore-Shape)
 
-It's about how shapes influence our thinking, spark curiosity, and inspire ingenuity.
-Most of all, it's about using AI as a tool to bring creative ideas to life.
+## Features
+- Interactive shape exploration
+- AI-driven geometric transformations
+- Responsive design for web
+
+## Setup
+Clone the repo and open `index.html` in your browser.
+
+## References
+📖 [Setup GitHub Pages Guide](SETUP_GITHUB_PAGES.md)
